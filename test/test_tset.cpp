@@ -295,3 +295,96 @@ TEST(TSet, check_negation_operator)
 
   EXPECT_EQ(expSet, set1);
 }
+TEST(TSet, can_intersect_t_sets_of_non_equal_size)
+{
+  const int size1 = 20, size2 = 30;
+  TSet set1(size1), set2(size2), set10(size1), expSet(size2), set4(size1), set5(size2), set11(size1), set12(size1), set3(size2), set13(size1), set14(size1);
+  // set1 = {1, 2, 4}
+  set1.InsElem(1);
+  set1.InsElem(2);
+  set1.InsElem(4);
+  // set2 = {0, 1, 2, 4, 6}
+  set2.InsElem(0);
+  set2.InsElem(1);
+  set2.InsElem(2);
+  set2.InsElem(4);
+  set2.InsElem(6);
+  set10 = set1 * set2;
+  // expSet = {1, 2, 4}
+  expSet.InsElem(1);
+  expSet.InsElem(2);
+  expSet.InsElem(4);
+  
+  //TSet set4(size1), set5(size2), set11(size1);
+  // set4 = {1, 3, 4}
+  set4.InsElem(1);
+  set4.InsElem(3);
+  set4.InsElem(4);
+  // set5 = {0, 1, 3, 4, 6}
+  set5.InsElem(0);
+  set5.InsElem(1);
+  set5.InsElem(3);
+  set5.InsElem(4);
+  set5.InsElem(6);
+  set11 = set4 * set5;
+  // expSet = {1, 3, 4}
+  expSet.InsElem(1);
+  expSet.InsElem(3);
+  expSet.InsElem(4);
+
+  //EXPECT_EQ(expSet, set11);
+
+
+//TSet set12(size1);
+  // set10 = {1, 2, 4}
+  set10.InsElem(1);
+  set10.InsElem(2);
+  set10.InsElem(4);
+  // set11 = {1, 3, 4}
+  set11.InsElem(1);
+  set11.InsElem(3);
+  set11.InsElem(4);
+  
+  set12 = set10 + set11;
+  // expSet = {1, 2,3, 4}
+  expSet.InsElem(1);
+expSet.InsElem(2);
+  expSet.InsElem(3);
+  expSet.InsElem(4);
+
+  //EXPECT_EQ(expSet, set12);
+
+//TSet set3(size2), set13(size1);
+  // set12 = {1, 2,3, 4}
+  set12.InsElem(1);
+  set12.InsElem(2);
+set12.InsElem(3);
+  set12.InsElem(4);
+  // set3 = {1, 3, 4}
+  set3.InsElem(1);
+  set3.InsElem(3);
+  set3.InsElem(4);
+  
+  set13 = set12 + set3;
+  // expSet = {1, 2,3, 4}
+  expSet.InsElem(1);
+expSet.InsElem(2);
+  expSet.InsElem(3);
+  expSet.InsElem(4);
+
+  //EXPECT_EQ(expSet, set13);
+
+//TSet set14(size1);
+// set13 = {1, 2,3, 4}
+  set13.InsElem(1);
+  set13.InsElem(2);
+set13.InsElem(3);
+  set13.InsElem(4);
+  set14 = set13 - 2;
+// expSet = {1, 3, 4}
+  expSet.InsElem(1);
+  //expSet.InsElem(2);
+  expSet.InsElem(3);
+  expSet.InsElem(4);
+ EXPECT_EQ(expSet, set1*set2+set4*set5+set3-2);
+}
