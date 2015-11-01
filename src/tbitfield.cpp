@@ -8,7 +8,7 @@
 #include "tbitfield.h"
 
 TBitField::TBitField(int len)
-{
+{99999999
 }
 
 TBitField::TBitField(const TBitField &bf) // конструктор копирования
