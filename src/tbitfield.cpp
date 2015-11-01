@@ -8,7 +8,7 @@
 #include "tbitfield.h"
 
 TBitField::TBitField(int len)
-{
+{ 
 }
 
 TBitField::TBitField(const TBitField &bf) // конструктор копирования
@@ -31,7 +31,7 @@ TELEM TBitField::GetMemMask(const int n) const // битовая маска дл
 
 int TBitField::GetLength(void) const // получить длину (к-во битов)
 {
-  return 0;
+  
 }
 
 void TBitField::SetBit(const int n) // установить бит
@@ -44,7 +44,7 @@ void TBitField::ClrBit(const int n) // очистить бит
 
 int TBitField::GetBit(const int n) const // получить значение бита
 {
-  return 0;
+
 }
 
 // битовые операции
@@ -55,12 +55,12 @@ TBitField& TBitField::operator=(const TBitField &bf) // присваивание
 
 int TBitField::operator==(const TBitField &bf) const // сравнение
 {
-  return 0;
+  
 }
 
 int TBitField::operator!=(const TBitField &bf) const // сравнение
 {
-  return 0;
+ 
 }
 
 TBitField TBitField::operator|(const TBitField &bf) // операция "или"
@@ -73,6 +73,8 @@ TBitField TBitField::operator&(const TBitField &bf) // операция "и"
 
 TBitField TBitField::operator~(void) // отрицание
 {
+	
+	
 }
 
 // ввод/вывод
